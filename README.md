@@ -36,7 +36,7 @@ zone "smartlearn.dmz" {
 zone "220.168.192.in-addr.arpa" {
         type master;
         notify no;
-        file "etc/bind/db.220.168.192";
+        file "etc/bind/db.192.168.220";
 };
 
 //
@@ -52,7 +52,7 @@ zone "smartlearn.lan" {
 zone "210.168.192.in-addr.arpa" {
         type master;
         notify no;
-        file "etc/bind/db.210.168.192";
+        file "etc/bind/db.192.168.210";
 };
 </pre>
 
