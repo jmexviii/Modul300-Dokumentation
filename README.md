@@ -29,7 +29,7 @@ sudo cp db.empty db.192.168.210
 
 zone "smartlearn.dmz" {
         type master;
-        notifiy no;
+        notify no;
         file "/etc/bind/db.smartlearn.dmz";
 };
 
@@ -45,7 +45,7 @@ zone "220.168.192.in-addr.arpa" {
 
 zone "smartlearn.lan" {
         type master;
-        notifiy no;
+        notify no;
         file "/etc/bind/db.smartlearn.lan";
 };
 
