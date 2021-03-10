@@ -87,7 +87,7 @@ options {
 };
 </pre>
 
-## #db.smartlearn.dmz
+## db.smartlearn.dmz
 <pre>
 ;
 ; Zonendatei fuer lan.smartlearn
