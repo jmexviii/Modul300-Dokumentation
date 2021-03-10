@@ -1,11 +1,11 @@
 # Modul300-Dokumentation
 
-1. sudo 
+## Install Bind
 <pre>
-apt install bind9
+sudo apt install bind9
 </pre>
 
-3. create files
+## create files
 <pre>
 sudo cp db.empty db.smartlearn.dmz
 sudo cp db.empty db.smartlearn.lan
@@ -13,7 +13,7 @@ sudo cp db.empty db.192.168.220
 sudo cp db.empty db.192.168.210
 </pre>
 
-4. named.conf
+## named.conf
 <pre>
 //
 // Do any local configuration here
@@ -87,7 +87,7 @@ options {
 };
 </pre>
 
-6. db.smartlearn.dmz
+## #db.smartlearn.dmz
 <pre>
 ;
 ; Zonendatei fuer lan.smartlearn
@@ -123,7 +123,7 @@ $TTL    3600
 12      IN      PTR     vmls3.smartlearn.dmz.
 </pre>
 
-8. db.smartlearn.lan
+## db.smartlearn.lan
 <pre>
 ;
 ; Zonendatei fuer lan
@@ -144,7 +144,7 @@ vmls4   IN      A       192.168.210.60
 vmls5   IN      A       192.168.210.61
 </pre>
 
-9. db.192.168.210
+## db.192.168.210
 <pre>
 ;
 ; Zonendatei fuer 192.168.210
