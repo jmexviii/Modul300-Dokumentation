@@ -1,16 +1,19 @@
 # Modul300-Dokumentation
 
-1. sudo apt install bind9
-2. create files
+1. sudo 
 <pre>
--  sudo cp db.empty db.smartlearn.dmz
--  sudo cp db.empty db.smartlearn.lan
--  sudo cp db.empty db.192.168.220
--  sudo cp db.empty db.192.168.210
+apt install bind9
+</pre>
+
+3. create files
+<pre>
+sudo cp db.empty db.smartlearn.dmz
+sudo cp db.empty db.smartlearn.lan
+sudo cp db.empty db.192.168.220
+sudo cp db.empty db.192.168.210
 </pre>
 
 4. named.conf
-
 <pre>
 //
 // Do any local configuration here
@@ -53,3 +56,111 @@ zone "210.168.192.in-addr.arpa" {
 };
 </pre>
 
+5. named.conf.options
+<pre>
+options {
+        // IPv4
+        listen-on port 53 {
+                any;
+        };
+        // IPv6 ist innerhalb von Smartlearn nicht in Verwendung
+        listen-on-v6 {
+                none;
+        };
+        // DNS-Anfragen sollen an Quad9 weitergleitet werden
+        forwarders {
+                1.1.1.1;
+                9.9.9.9;
+        };
+        // Anfragen sollen von ueberall her moeglich sein (inkl. Internet)
+        allow-query {
+                any;
+        };
+        // Rekursive Anfragen nur fuer Clients aus dem smartlearn-Netz
+        allow-recursion {
+                localhost;
+                127.0.0.1;
+                192.168.220.0/24;
+                192.168.210.0/24;
+        };
+
+};
+</pre>
+
+6. db.smartlearn.dmz
+<pre>
+;
+; Zonendatei fuer lan.smartlearn
+; /etc/bind/db.smartlearn.dmz
+;
+$TTL    3600
+@       IN      SOA     vmls3.dmz.smartlearn.      root.localhost. (
+                        1
+                        1H
+                        2H
+                        1D
+                        1H )
+@       IN      NS      vmls1.dmz.smartlearn.
+vmlf1   IN      A       192.168.220.1
+vmls3	IN 	A 	192.168.220.12
+</pre>
+
+7. db.192.168.220
+<pre>
+;
+; Zonendatei fuer 192.168.220
+; /etc/bind/db.192.168.220
+;
+$TTL    3600
+@       IN      SOA     vmls3.smartlearn.dmz.   root.localhost. (
+                        1
+                        1H
+                        2H
+                        1D
+                        1H )
+@       IN      NS      vmls3.smartlearn.dmz.
+1       IN      PTR     vmlf1.smartlearn.dmz.
+12      IN      PTR     vmls3.smartlearn.dmz.
+</pre>
+
+8. db.smartlearn.lan
+<pre>
+;
+; Zonendatei fuer lan
+; /etc/bind9/db.smartlearn.lan
+;
+$TTL    3600
+@       IN      SOA     vmls3.smartlearn.dmz.      root.localhost. (
+                        1
+                        1H
+                        2H
+                        1D
+                        1H )
+@       IN      NS      vmls3.smartlearn.dmz.
+vmlf1   IN      A       192.168.210.1
+vmwp1   IN      A       192.168.210.10
+vmlp1   IN      A       192.168.210.30
+vmls4   IN      A       192.168.210.60
+vmls5   IN      A       192.168.210.61
+</pre>
+
+9. db.192.168.210
+<pre>
+;
+; Zonendatei fuer 192.168.210
+; /etc/bind/db.192.168.210
+;
+$TTL    3600
+@       IN      SOA     vmls3.smartlearn.dmz.   root.localhost. (
+                        1
+                        1H
+                        2H
+                        1D
+                        1H )
+@       IN      NS      vmls3.smartlearn.dmz.
+1       IN      PTR     vmlf1.smartlearn.lan.
+10      IN      PTR     vmwp1.smartlearn.lan.
+30      IN      PTR     vmlp1.smartlearn.lan.
+60      IN      PTR     vmls4.smartlearn.lan.
+61      IN      PTR     vmls5.smartlearn.lan.
+</pre>
