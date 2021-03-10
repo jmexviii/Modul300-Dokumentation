@@ -56,7 +56,7 @@ zone "210.168.192.in-addr.arpa" {
 };
 </pre>
 
-5. named.conf.options
+## named.conf.options
 <pre>
 options {
         // IPv4
