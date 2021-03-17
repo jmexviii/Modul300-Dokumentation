@@ -186,11 +186,6 @@ nm-connection-editor
 3. Unter Suchdomäne 
 <pre>smartlearn.lan smartlearn.dmz</pre> 
 
-# Debug
-<pre>
-systemd-resolve --status
-systemd-resolve --flush
-</pre>
 
 ## Searchdomain on other 
 <pre>
@@ -201,8 +196,13 @@ sudo vim /etc/netplan/...
 nameservers:
         search: [ smartlearn.lan smartlearn.dmz ]
 </pre>
+# Debug
+<pre>
+systemd-resolve --status
+systemd-resolve --flush
+</pre>
 
-#Testen von DNS
+# Testen von DNS
 <pre>
 dig Suche DNS
 dig A  vmls4.smartlearn.lan 192.168.220.12
