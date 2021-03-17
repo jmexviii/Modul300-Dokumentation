@@ -142,6 +142,7 @@ vmwp1   IN      A       192.168.210.10
 vmlp1   IN      A       192.168.210.30
 vmls4   IN      A       192.168.210.60
 vmls5   IN      A       192.168.210.61
+test    IN      A       192.168.210.99
 </pre>
 
 ## db.192.168.210
@@ -163,4 +164,41 @@ $TTL    3600
 30      IN      PTR     vmlp1.smartlearn.lan.
 60      IN      PTR     vmls4.smartlearn.lan.
 61      IN      PTR     vmls5.smartlearn.lan.
+99      IN      PTR     test.smartlearn.lan.
+</pre>
+
+### Bind config auf Host anpassen
+Anpassen der Bind Config der Hosts
+
+## DNS eintrag ändern
+<pre>
+sudo vim /etc/netplan/filename
+sudo netplan apply
+</pre>
+
+## Searchdomain on vmLP1
+wird nicht zweingend gebraucht
+<pre>
+nm-connection-editor
+</pre>
+1. Anschliessend auf das Interface
+2. IPv4-Einstellungen auswählen
+3. Unter Suchdomäne <pre>smartlearn.lan smartlearn.dmz</pre> eintragen
+
+# Debug
+<pre>
+systemd-resolve --status
+systemd-resolve --flush
+</pre>
+
+## Searchdomain on other 
+noch suchen
+
+### Testen von DNS
+<pre>
+dig Suche DNS
+dig A  vmls4.smartlearn.lan 192.168.220.12
+
+nslookup Suche
+nslookup vmls4.smartlearn.lan
 </pre>
