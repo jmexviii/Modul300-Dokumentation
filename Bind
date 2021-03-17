@@ -183,7 +183,8 @@ nm-connection-editor
 </pre>
 1. Anschliessend auf das Interface
 2. IPv4-Einstellungen auswählen
-3. Unter Suchdomäne <pre>smartlearn.lan smartlearn.dmz</pre> eintragen
+3. Unter Suchdomäne 
+<pre>smartlearn.lan smartlearn.dmz</pre> 
 
 # Debug
 <pre>
