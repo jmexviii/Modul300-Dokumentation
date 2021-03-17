@@ -192,9 +192,16 @@ systemd-resolve --flush
 </pre>
 
 ## Searchdomain on other 
-noch suchen
+<pre>
+sudo vim /etc/netplan/...
+</pre>
 
-### Testen von DNS
+<pre>
+nameservers:
+        search: [ smartlearn.lan smartlearn.dmz ]
+</pre>
+
+#Testen von DNS
 <pre>
 dig Suche DNS
 dig A  vmls4.smartlearn.lan 192.168.220.12
