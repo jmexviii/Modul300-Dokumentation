@@ -23,23 +23,23 @@ root@vmLS3:~# sudo apt install apache2 -y
 root@vmLS3:~# vim /etc/apache2/apache2.conf
 </pre>
 
-<pre>
+```bash
 <Directory /www/>
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
 </Directory>
-</pre>
+```
 
 ## Namebased Virtualhost erstellen
 ```bash
 root@vmLS3:~# cd /etc/apache2/sites-enabled/
 root@vmls3:/etc/apache2/sites-enabled# vim www.smartlearn.dmz.conf
 ```
-<pre>
+```bash
 <VirtualHost *:80>
 ServerName www.smartlearn.dmz
 ServerAlias smartlearn.dmz
 DocumentRoot /www/www.smartlearn.dmz
 </VirtualHost>
-</pre>
+```
