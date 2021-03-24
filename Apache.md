@@ -2,26 +2,26 @@
 
 
 ## Verzeichnis erstellen vmls3
-<pre>
+```bash
 root@vmLS3:~# mkdir -p /www/www.smartlearn.dmz/err
-</pre>
+```
 
 ## Verzeichnis erstellen vmls5
-<pre> 
+```bash 
 root@vmLS5:~# mkdir -p /www/www.smartlearn.ch/err
 root@vmLS5:~# mkdir -p /www/ku1.smartlearn.ch/err
 root@vmLS5:~# mkdir -p /www/ku2.smartlearn.ch/err
-</pre>
+``` 
 
 ## Installieren
-<pre>
+```bash
 root@vmLS3:~# sudo apt install apache2 -y
-</pre>
+``` 
 
 ## Directory zu Apache config hinzufügen
-<pre>
+```bash
 root@vmLS3:~# vim /etc/apache2/apache2.conf
-</pre>
+```
 
 ```bash
 <Directory /www/>
