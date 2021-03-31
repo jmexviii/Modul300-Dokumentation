@@ -33,11 +33,11 @@ root@vmLS3:~# vim /etc/apache2/apache2.conf
 
 ## Namebased Virtualhost erstellen
 
-```bash
+```Bash
 root@vmLS3:~# cd /etc/apache2/sites-enabled/
 root@vmls3:/etc/apache2/sites-enabled# vim www.smartlearn.dmz.conf
 ```
-```bash
+```Bash
 <VirtualHost *:80>
 ServerName www.smartlearn.dmz
 ServerAlias smartlearn.dmz
@@ -46,11 +46,11 @@ DocumentRoot /www/www.smartlearn.dmz
 ```
 
 ### Kann auch gestackt werden
-```bash
+```Bash
 root@vmLS5:/etc/apache2/sites-enabled# vim ku1.smartlearn.lan.conf
 ```
 
-```bash
+```Bash
 <VirtualHost *:80>
 ServerName ku1.smartlearn.lan
 ServerAlias smartlearn.lan
@@ -76,7 +76,7 @@ root@vmLS3:~# vim /etc/bind/db.smartlearn.dmz
 www     IN      CNAME   vmls3.smartlearn.dmz.
 ``` 
 
-```bash
+```Bash
 root@vmls3:/etc/bind# vim db.smartlearn.lan
 
 www     IN      CNAME   vmls5.smartlearn.lan.
