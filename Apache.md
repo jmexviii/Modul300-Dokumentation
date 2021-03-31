@@ -44,6 +44,31 @@ ServerAlias smartlearn.dmz
 DocumentRoot /www/www.smartlearn.dmz
 </VirtualHost>
 ```
+
+### Kann auch gestackt werden
+```bash
+root@vmLS5:/etc/apache2/sites-enabled# vim ku1.smartlearn.lan.conf
+```
+
+````bash
+<VirtualHost *:80>
+ServerName ku1.smartlearn.lan
+ServerAlias smartlearn.lan
+DocumentRoot /www/ku1.smartlearn.lan
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerName ku2.smartlearn.lan
+ServerAlias smartlearn.lan
+DocumentRoot /www/ku2.smartlearn.lan
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerName www.smartlearn.lan
+ServerAlias smartlearn.lan
+DocumentRoot /www/www.smartlearn.lan
+</VirtualHost>
+```
 ## Bind Anpassen
 ```Bash
 root@vmLS3:~# vim /etc/bind/db.smartlearn.dmz
