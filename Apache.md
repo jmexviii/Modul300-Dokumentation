@@ -50,7 +50,7 @@ DocumentRoot /www/www.smartlearn.dmz
 root@vmLS5:/etc/apache2/sites-enabled# vim ku1.smartlearn.lan.conf
 ```
 
-````bash
+```bash
 <VirtualHost *:80>
 ServerName ku1.smartlearn.lan
 ServerAlias smartlearn.lan
