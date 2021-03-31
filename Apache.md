@@ -72,7 +72,15 @@ DocumentRoot /www/www.smartlearn.lan
 ## Bind Anpassen
 ```Bash
 root@vmLS3:~# vim /etc/bind/db.smartlearn.dmz
-``` 
-```Bash
+
 www     IN      CNAME   vmls3.smartlearn.dmz.
 ``` 
+
+```bash
+root@vmls3:/etc/bind# vim db.smartlearn.lan
+
+www     IN      CNAME   vmls5.smartlearn.lan.
+ku1     IN      CNAME   vmls5.smartlearn.lan.
+ku2     IN      CNAME   vmls5.smartlearn.lan.
+
+```
